@@ -24,7 +24,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://127.0.0.1:3000",
-      "https://selling-porfolio-design-frontend.vercel.app",
+      "lz-fly-xlgc.vercel.app",
     ], // Specify your frontend URLs
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
@@ -95,4 +95,3 @@ app.use("*", (req: Request, res: Response) => {
 });
 
 export default app;
-

@@ -24,7 +24,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://127.0.0.1:3000",
-      "lz-fly-xlgc.vercel.app",
+      "https://lz-fly-xlgc.vercel.app",
     ], // Specify your frontend URLs
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],

@@ -15,6 +15,11 @@ const app: Application = express();
 // Stripe requires raw body for signature verification
 app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
 
+app.use((req, _res, next) => {
+  console.log("🧭 Origin:", req.headers.origin);
+  next();
+});
+
 // Parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,18 +29,19 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://127.0.0.1:3000",
-      "https://lz-fly-xlgc.vercel.app",
-      "https://lz-fly-xlgc-9pcl989fa-fahimhossen2x-1772s-projects.vercel.app",
-    ], // Specify your frontend URLs
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+      "https://lz-fly-xlgc.vercel.app", // ✅ main frontend
+      "https://lz-fly-xlgc-9pcl989fa-fahimhossen2x-1772s-projects.vercel.app", // ✅ preview frontend
+      "https://lz-fly.vercel.app", // ✅ your backend domain (important!)
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: [
       "Content-Type",
       "Authorization",
       "X-Requested-With",
       "Accept",
     ],
-    optionsSuccessStatus: 200, // Some legacy browsers choke on 204
+    optionsSuccessStatus: 200,
   }),
 );
 

@@ -25,6 +25,7 @@ app.use(
       "http://localhost:3000",
       "http://127.0.0.1:3000",
       "https://lz-fly-xlgc.vercel.app",
+      "https://lz-fly-xlgc-9pcl989fa-fahimhossen2x-1772s-projects.vercel.app",
     ], // Specify your frontend URLs
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
@@ -95,4 +96,3 @@ app.use("*", (req: Request, res: Response) => {
 });
 
 export default app;
-
